@@ -244,6 +244,14 @@
     .steps{gap:30px}
     section{padding:64px 0}
   }
+  /* ---------- ACTIVE NAV ---------- */
+  .nav-links a.nav-active{color:var(--ink);font-weight:600}
+
+  /* ---------- SCROLL TO TOP ---------- */
+  .totop{position:fixed;bottom:28px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--cobalt);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 4px 16px rgba(16,89,122,.35);opacity:0;transform:translateY(12px);transition:opacity .25s,transform .25s;z-index:99}
+  .totop.show{opacity:1;transform:translateY(0)}
+  .totop:hover{background:var(--cobalt-deep);transform:translateY(-2px)}
+
   /* ---------- SCROLL ANIMATIONS ---------- */
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
   .reveal.visible{opacity:1;transform:none}
@@ -271,10 +279,12 @@
     <!-- TAHRIRLANG: brend nomi -->
     <a href="#top" class="brand"><span class="dot"></span>Otabek Inagamov<span style="color:var(--cobalt)"></span></a>
     <nav class="nav-links" id="navlinks">
-      <a href="#services" data-i18n="nav.services">Xizmatlar</a>
-      <a href="#work" data-i18n="nav.work">Ishlar</a>
-      <a href="#process" data-i18n="nav.process">Jarayon</a>
-      <a href="#about" data-i18n="nav.about">Men haqimda</a>
+      <a href="#services" data-i18n="nav.services" data-section="services">Xizmatlar</a>
+      <a href="#work" data-i18n="nav.work" data-section="work">Ishlar</a>
+      <a href="#testimonials" data-i18n="nav.testimonials" data-section="testimonials">Sharhlar</a>
+      <a href="#process" data-i18n="nav.process" data-section="process">Jarayon</a>
+      <a href="#faq" data-i18n="nav.faq" data-section="faq">FAQ</a>
+      <a href="#about" data-i18n="nav.about" data-section="about">Men haqimda</a>
       <a href="#contact" class="btn btn-primary" data-i18n="nav.cta">Buyurtma berish</a>
     </nav>
     <div style="display:flex;align-items:center;gap:12px">
@@ -587,6 +597,8 @@
   </div>
 </section>
 
+<button class="totop" id="totop" aria-label="Yuqoriga">↑</button>
+
 <footer>
   <div class="wrap foot">
     <span>© <span id="yr"></span> Otabek Inagamov · <span data-i18n="footer.role">Veb-dasturchi, Toshkent</span></span>
@@ -642,7 +654,7 @@ navlinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>navlink
    ============================================================ */
 const I18N={
   en:{
-    "nav.services":"Services","nav.work":"Work","nav.process":"How it works","nav.about":"About","nav.cta":"Start a project",
+    "nav.services":"Services","nav.work":"Work","nav.testimonials":"Reviews","nav.process":"How it works","nav.faq":"FAQ","nav.about":"About","nav.cta":"Start a project",
     "hero.eyebrow":"Tashkent · Website · Telegram bot · CMS",
     "hero.title":"Turning your business into something that <span class='accent'>works online</span>.",
     "hero.sub":"Looking good isn't enough — your site needs to load fast, earn trust, and convert visitors. I handle the technical side so you can focus on your business.",
@@ -697,7 +709,7 @@ const I18N={
     "footer.role":"Web Developer, Tashkent"
   },
   ru:{
-    "nav.services":"Услуги","nav.work":"Работы","nav.process":"Как работаем","nav.about":"Обо мне","nav.cta":"Начать проект",
+    "nav.services":"Услуги","nav.work":"Работы","nav.testimonials":"Отзывы","nav.process":"Как работаем","nav.faq":"FAQ","nav.about":"Обо мне","nav.cta":"Начать проект",
     "hero.eyebrow":"Ташкент · Сайт · Telegram бот · CMS",
     "hero.title":"Превращаю ваш бизнес в то, что <span class='accent'>работает онлайн</span>.",
     "hero.sub":"Красивый вид — это не всё. Сайт должен быстро загружаться, вызывать доверие и конвертировать посетителей. Я занимаюсь технической стороной — вы занимаетесь бизнесом.",
@@ -779,6 +791,23 @@ document.querySelectorAll("[data-i18n]").forEach(el=>el.dataset.uz=el.textConten
 document.querySelectorAll("[data-i18n-html]").forEach(el=>el.dataset.uz=el.innerHTML);
 document.querySelectorAll("[data-i18n-ph]").forEach(el=>el.dataset.uzPh=el.placeholder);
 buttons.forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+
+/* ---- scroll to top ---- */
+const totop=document.getElementById("totop");
+window.addEventListener("scroll",()=>totop.classList.toggle("show",window.scrollY>400));
+totop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+
+/* ---- active nav highlight ---- */
+const navSections=document.querySelectorAll("section[id]");
+const navAnchors=document.querySelectorAll(".nav-links a[data-section]");
+const navObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navAnchors.forEach(a=>a.classList.toggle("nav-active",a.dataset.section===e.target.id));
+    }
+  });
+},{rootMargin:"-40% 0px -55% 0px"});
+navSections.forEach(s=>navObserver.observe(s));
 
 /* ---- faq accordion ---- */
 document.querySelectorAll(".faq-q").forEach(btn=>{
