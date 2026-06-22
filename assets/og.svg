@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0E2A30"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.08"/>
+  <defs>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <rect x="12" y="12" width="24" height="24" fill="none" stroke="#2C9C92" stroke-width="1"/>
+      <rect x="12" y="12" width="24" height="24" fill="none" stroke="#2C9C92" stroke-width="1" transform="rotate(45 24 24)"/>
+    </pattern>
+  </defs>
+  <!-- Avatar circle -->
+  <circle cx="160" cy="315" r="72" fill="#10597A"/>
+  <text x="160" y="332" font-family="system-ui,sans-serif" font-weight="800" font-size="48" fill="white" text-anchor="middle">OI</text>
+  <!-- Name -->
+  <text x="272" y="290" font-family="system-ui,sans-serif" font-weight="800" font-size="52" fill="white">Otabek Inagamov</text>
+  <!-- Role -->
+  <text x="274" y="348" font-family="system-ui,sans-serif" font-weight="500" font-size="28" fill="#2C9C92" letter-spacing="3">VEB-DASTURCHI · TOSHKENT</text>
+  <!-- Divider -->
+  <rect x="120" y="400" width="960" height="2" fill="#10597A" rx="1"/>
+  <!-- Tags -->
+  <rect x="120" y="432" width="180" height="44" rx="22" fill="#10597A"/>
+  <text x="210" y="460" font-family="system-ui,sans-serif" font-size="18" fill="white" text-anchor="middle">Veb-sayt</text>
+  <rect x="316" y="432" width="220" height="44" rx="22" fill="#10597A"/>
+  <text x="426" y="460" font-family="system-ui,sans-serif" font-size="18" fill="white" text-anchor="middle">Telegram bot</text>
+  <rect x="552" y="432" width="140" height="44" rx="22" fill="#10597A"/>
+  <text x="622" y="460" font-family="system-ui,sans-serif" font-size="18" fill="white" text-anchor="middle">CMS</text>
+  <rect x="708" y="432" width="200" height="44" rx="22" fill="#10597A"/>
+  <text x="808" y="460" font-family="system-ui,sans-serif" font-size="18" fill="white" text-anchor="middle">WebApp</text>
+  <!-- URL -->
+  <text x="600" y="570" font-family="system-ui,sans-serif" font-size="22" fill="#41565B" text-anchor="middle">sylvestrslay1.github.io/portfolio</text>
+  <!-- Gold dot -->
+  <circle cx="116" cy="240" r="10" fill="#C28A2A"/>
+</svg>

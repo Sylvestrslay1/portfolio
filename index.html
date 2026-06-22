@@ -24,12 +24,16 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2310597A'/><text x='50%25' y='50%25' font-family='system-ui,sans-serif' font-weight='800' font-size='18' fill='white' text-anchor='middle' dominant-baseline='central'>O</text></svg>" />
 <!-- OG / Social preview -->
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://sylvestrslay1.github.io/portfolio/" />
 <meta property="og:title" content="Otabek Inagamov — Veb-dasturchi, Toshkent" />
 <meta property="og:description" content="Biznes uchun veb-saytlar, Telegram botlar va CMS tizimlar. Tezkor, sifatli, kelishilgan muddatda." />
 <meta property="og:locale" content="uz_UZ" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="https://sylvestrslay1.github.io/portfolio/assets/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Otabek Inagamov — Veb-dasturchi" />
 <meta name="twitter:description" content="Biznes uchun veb-saytlar, Telegram botlar va CMS tizimlar." />
+<meta name="twitter:image" content="https://sylvestrslay1.github.io/portfolio/assets/og.png" />
+<link rel="canonical" href="https://sylvestrslay1.github.io/portfolio/" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -176,6 +180,34 @@
   .stack-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cobalt);margin-bottom:14px;display:block}
   .stack{display:flex;flex-wrap:wrap;gap:9px}
   .stack span{font-family:var(--mono);font-size:.82rem;background:var(--porcelain);border:1px solid var(--line);padding:8px 14px;border-radius:10px}
+  .avatar-wrap{display:flex;flex-direction:column;align-items:center;gap:20px;padding:32px;background:var(--porcelain);border:1px solid var(--line);border-radius:var(--radius)}
+  .avatar{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--cobalt),var(--turq));display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:2.2rem;font-weight:800;color:#fff;letter-spacing:-.02em;box-shadow:0 8px 32px -8px rgba(16,89,122,.4)}
+  .avatar-name{font-family:var(--display);font-weight:700;font-size:1.15rem;text-align:center}
+  .avatar-role{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cobalt);text-align:center}
+  .avatar-badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:4px}
+
+  /* faq */
+  .faq-list{display:flex;flex-direction:column;gap:10px;max-width:760px}
+  .faq-item{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .2s}
+  .faq-item.open{border-color:rgba(16,89,122,.35)}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:20px 24px;font-family:var(--body);font-size:1rem;font-weight:600;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq-q::after{content:"+";font-size:1.4rem;font-weight:400;color:var(--cobalt);flex-shrink:0;transition:transform .25s}
+  .faq-item.open .faq-q::after{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s}
+  .faq-item.open .faq-a{max-height:200px}
+  .faq-a p{padding:0 24px 20px;color:var(--ink-soft);font-size:.96rem;line-height:1.65}
+
+  /* testimonials */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .testi-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:14px;transition:transform .2s,box-shadow .2s}
+  .testi-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -26px rgba(14,42,48,.4)}
+  .testi-stars{color:var(--gold);font-size:1rem;letter-spacing:2px}
+  .testi-text{color:var(--ink-soft);font-size:.97rem;line-height:1.6;flex:1;font-style:italic}
+  .testi-author{display:flex;align-items:center;gap:12px;margin-top:4px}
+  .testi-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--cobalt),var(--turq));display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;color:#fff;font-size:1.1rem;flex-shrink:0}
+  .testi-author b{display:block;font-size:.95rem}
+  .testi-author span{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase}
+  @media(max-width:880px){.testi-grid{grid-template-columns:1fr}}
 
   /* contact */
   #contact{background:var(--ink);color:var(--porcelain);position:relative;overflow:hidden}
@@ -212,7 +244,14 @@
     .steps{gap:30px}
     section{padding:64px 0}
   }
-  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+  /* ---------- SCROLL ANIMATIONS ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .55s ease,transform .55s ease}
+  .reveal.visible{opacity:1;transform:none}
+  .reveal-delay-1{transition-delay:.1s}
+  .reveal-delay-2{transition-delay:.2s}
+  .reveal-delay-3{transition-delay:.3s}
+  .reveal-delay-4{transition-delay:.4s}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -292,25 +331,25 @@
       <p data-i18n="services.sub">Chiroyli ko'rinishi yetarli emas — saytingiz tez ochilishi va mijozni harakatga undashi kerak. Men shunga e'tibor beraman.</p>
     </div>
     <div class="svc-grid">
-      <div class="card">
+      <div class="card reveal reveal-delay-1">
         <span class="svc-num">01</span>
         <h3 data-i18n="s1.t">Veb-sayt</h3>
         <p data-i18n="s1.d">Telefonda tez ochiladigan, mijozni 3 soniyada ishontiradigan sayt. Eski va sekin saytlar mijozni qochiradi — sizniki aksincha.</p>
         <div class="tags"><span class="tag" data-i18n="s1.tag1">Landing</span><span class="tag" data-i18n="s1.tag2">Korporativ</span><span class="tag" data-i18n="s1.tag3">SEO-tayyor</span></div>
       </div>
-      <div class="card">
+      <div class="card reveal reveal-delay-2">
         <span class="svc-num">02</span>
         <h3 data-i18n="s2.t">Telegram bot</h3>
         <p data-i18n="s2.d">Mijoz bot orqali buyurtma beradi, savollarga bot javob beradi — siz admin paneldan kuzatasiz. Tunda ham ishlaydi, charchamaydi.</p>
         <div class="tags"><span class="tag" data-i18n="s2.tag1">Buyurtma</span><span class="tag" data-i18n="s2.tag2">Admin panel</span><span class="tag" data-i18n="s2.tag3">To'lov</span></div>
       </div>
-      <div class="card">
+      <div class="card reveal reveal-delay-3">
         <span class="svc-num">03</span>
         <h3 data-i18n="s3.t">Vizitka sayt</h3>
         <p data-i18n="s3.d">Qog'oz vizitka o'rniga bitta havola. Ism, xizmat, aloqa va ijtimoiy tarmoqlar — chiroyli bir sahifada. Eng arzon va tez yo'l.</p>
         <div class="tags"><span class="tag" data-i18n="s3.tag1">1 sahifa</span><span class="tag" data-i18n="s3.tag2">Tez</span><span class="tag" data-i18n="s3.tag3">Mobilga mos</span></div>
       </div>
-      <div class="card">
+      <div class="card reveal reveal-delay-4">
         <span class="svc-num">04</span>
         <h3 data-i18n="s4.t">Landing &amp; MVP</h3>
         <p data-i18n="s4.d">G'oyangiz bormi? Katta pul sarflashdan oldin uni sinab ko'rish uchun arzon, ishlaydigan birinchi versiyani yasab beraman.</p>
@@ -328,7 +367,7 @@
       <p data-i18n="work.sub">Haqiqiy loyihalar — saytlar, Telegram botlar va veb-ilovalar.</p>
     </div>
     <div class="work-grid">
-      <div class="proj">
+      <div class="proj reveal reveal-delay-1">
         <div class="thumb t1" data-i18n="p1.k">VEB-SAYT · CMS</div>
         <div class="pb">
           <span class="kind" data-i18n="p1.kind">O'quv markazi sayti</span>
@@ -340,7 +379,7 @@
           </div>
         </div>
       </div>
-      <div class="proj">
+      <div class="proj reveal reveal-delay-2">
         <div class="thumb t2" data-i18n="p2.k">TELEGRAM BOT</div>
         <div class="pb">
           <span class="kind" data-i18n="p2.kind">Kommunal xizmat boti</span>
@@ -348,7 +387,7 @@
           <p data-i18n="p2.d">Mirzo Ulug'bek tuman suv abonentlari uchun: hisoblagich ko'rsatgichlarini topshirish, admin panel va Excel hisobot.</p>
         </div>
       </div>
-      <div class="proj">
+      <div class="proj reveal reveal-delay-3">
         <div class="thumb t3" data-i18n="p3.k">TELEGRAM BOT · WEBAPP</div>
         <div class="pb">
           <span class="kind" data-i18n="p3.kind">Ta'lim va test boti</span>
@@ -358,6 +397,42 @@
       </div>
     </div>
     <p class="note" data-i18n="work.note">// PHP · Python · Telegram Bot API · MySQL</p>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="testi.eyebrow">Mijozlar</span>
+      <h2 data-i18n="testi.title">Ular nima deydi</h2>
+      <p data-i18n="testi.sub">Har bir loyihadan keyin mijozlar o'z fikrlarini qoldirishadi.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text" data-i18n="t1.text">"Sayt juda chiroyli va tez ishlaydi. Buyurtmalar soni oshdi, mijozlar maqtayapti."</p>
+        <div class="testi-author">
+          <div class="testi-av">A</div>
+          <div><b data-i18n="t1.name">Akbar T.</b><span data-i18n="t1.role">O'quv markazi egasi</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text" data-i18n="t2.text">"Telegram bot bizning xizmatimizni avtomatlashtirib yubordi. Admin panel qulay, hamma narsa tushunarli."</p>
+        <div class="testi-author">
+          <div class="testi-av">S</div>
+          <div><b data-i18n="t2.name">Sarvar M.</b><span data-i18n="t2.role">Biznes egasi</span></div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-3">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text" data-i18n="t3.text">"Muddatida topshirdi, so'ragan narsalarimni to'liq qildi. Keyingi loyihani ham ishonib beramiz."</p>
+        <div class="testi-author">
+          <div class="testi-av">N</div>
+          <div><b data-i18n="t3.name">Nodira K.</b><span data-i18n="t3.role">Freelance mijoz</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -438,11 +513,47 @@
       <p data-i18n="about.p2">Hozirga qadar o'quv markazi uchun to'liq CMS sayt, kommunal xizmat uchun Telegram bot va haydovchilik sinovlariga tayyorlov platformasini yaratdim. Har bir loyihani boshidan oxirigacha — talablar, dizayn, kod va joylashtirish — o'zim olib boraman.</p>
     </div>
     <div>
-      <span class="stack-label" data-i18n="about.stack">Texnologiyalar</span>
-      <div class="stack">
-        <span>Python</span><span>PHP / Yii2</span><span>JavaScript</span>
-        <span>HTML &amp; CSS</span><span>Telegram Bot API</span><span>MySQL</span>
-        <span>Telegram WebApp</span><span>Git</span>
+      <div class="avatar-wrap">
+        <div class="avatar">OI</div>
+        <div>
+          <div class="avatar-name">Otabek Inagamov</div>
+          <div class="avatar-role" data-i18n="footer.role">Veb-dasturchi, Toshkent</div>
+        </div>
+        <div class="avatar-badges">
+          <span class="tag">Python</span><span class="tag">PHP / Yii2</span><span class="tag">JS</span>
+          <span class="tag">Telegram Bot API</span><span class="tag">MySQL</span><span class="tag">Git</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-i18n="faq.eyebrow">FAQ</span>
+      <h2 data-i18n="faq.title">Ko'p beriladigan savollar</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" data-i18n="faq.q1">Loyiha uchun qancha to'lash kerak?</button>
+        <div class="faq-a"><p data-i18n="faq.a1">Narx loyiha hajmiga qarab belgilanadi. Vizitka sayt $50 dan, Telegram bot yoki ko'p sahifali sayt $150 dan boshlanadi. Murakkab loyihalar uchun narxni oldindan kelishib olamiz — hech qanday yashirin to'lov yo'q.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" data-i18n="faq.q2">Qancha vaqtda tayyorlanadi?</button>
+        <div class="faq-a"><p data-i18n="faq.a2">Vizitka sayt 3–5 kun, biznes sayt yoki bot 1–2 hafta. Murakkab loyihalar 2–4 hafta va undan ko'proq. Muddatni har doim oldindan kelishib, aniq aytaman.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" data-i18n="faq.q3">Hosting va domen ham kiradimi?</button>
+        <div class="faq-a"><p data-i18n="faq.a3">Hosting va domen narxga kirmaydi — bular alohida xarajat. Ammo ularni tanlash, to'lash va sozlashda to'liq yordam beraman. Arzon va ishonchli variantlarni tavsiya qilaman.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" data-i18n="faq.q4">Loyiha tayyor bo'lgandan keyin yordam berasizmi?</button>
+        <div class="faq-a"><p data-i18n="faq.a4">Ha. Biznes paketida 1 oy bepul texnik qo'llab-quvvatlash kiritilgan. Keyinroq ham kichik o'zgarishlar, yangilanishlar yoki yangi funksiyalar qo'shish uchun murojaat qilishingiz mumkin.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q" data-i18n="faq.q5">Oldindan to'lash kerakmi?</button>
+        <div class="faq-a"><p data-i18n="faq.a5">Odatda 50% oldindan, qolgan 50% loyiha tayyor bo'lib topshirilganda. Kichik loyihalar uchun boshqacha kelishuv ham mumkin.</p></div>
       </div>
     </div>
   </div>
@@ -555,6 +666,16 @@ const I18N={
     "p1.k":"WEBSITE · CMS","p1.kind":"Education center site","p1.t":"SmartEdu CMS","p1.d":"Applications, news, teacher profiles, contact section and a full admin panel.",
     "p2.k":"TELEGRAM BOT","p2.kind":"Utility bot","p2.t":"UzWaterMU","p2.d":"Water meter submission bot for Mirzo Ulugbek district: readings, admin panel and Excel reports.",
     "p3.k":"TELEGRAM BOT · WEBAPP","p3.kind":"Education & test bot","p3.t":"AvtoTest","p3.d":"Category-based test prep, study materials, real exam mode, WebApp interface and mistake review.",
+    "faq.eyebrow":"FAQ","faq.title":"Frequently asked questions",
+    "faq.q1":"How much does a project cost?","faq.a1":"The price depends on the project scope. A business card site starts from $50, a Telegram bot or multi-page site from $150. Complex projects are quoted upfront — no hidden fees.",
+    "faq.q2":"How long does it take?","faq.a2":"A card site takes 3–5 days, a business site or bot 1–2 weeks. Complex projects 2–4 weeks or more. I always agree on the deadline upfront.",
+    "faq.q3":"Does the price include hosting and domain?","faq.a3":"Hosting and domain are separate costs. However, I'll fully help you choose, pay for, and set them up — and recommend affordable, reliable options.",
+    "faq.q4":"Do you provide support after launch?","faq.a4":"Yes. The Business package includes 1 month of free technical support. After that, you can contact me for small changes, updates or new features.",
+    "faq.q5":"Is an upfront payment required?","faq.a5":"Typically 50% upfront and 50% upon delivery. For smaller projects, a different arrangement is possible.",
+    "testi.eyebrow":"Clients","testi.title":"What they say","testi.sub":"Clients share their experience after every project.",
+    "t1.text":'"The site looks great and loads fast. Orders went up and clients love it."',"t1.name":"Akbar T.","t1.role":"Education center owner",
+    "t2.text":'"The Telegram bot fully automated our service. The admin panel is intuitive and clear."',"t2.name":"Sarvar M.","t2.role":"Business owner",
+    "t3.text":'"Delivered on time, did everything I asked. We\'ll definitely work together again."',"t3.name":"Nodira K.","t3.role":"Freelance client",
     "process.eyebrow":"How it works","process.title":"How working together goes",
     "process.sub":"Simple and open — you always know what's happening at each step.",
     "pr1.t":"Talk","pr1.d":"We discuss your idea and what you actually need.",
@@ -601,6 +722,22 @@ document.querySelectorAll("[data-i18n]").forEach(el=>el.dataset.uz=el.textConten
 document.querySelectorAll("[data-i18n-html]").forEach(el=>el.dataset.uz=el.innerHTML);
 document.querySelectorAll("[data-i18n-ph]").forEach(el=>el.dataset.uzPh=el.placeholder);
 buttons.forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+
+/* ---- faq accordion ---- */
+document.querySelectorAll(".faq-q").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const item=btn.closest(".faq-item");
+    const isOpen=item.classList.contains("open");
+    document.querySelectorAll(".faq-item.open").forEach(el=>el.classList.remove("open"));
+    if(!isOpen) item.classList.add("open");
+  });
+});
+
+/* ---- scroll reveal ---- */
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target);}});
+},{threshold:0.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
