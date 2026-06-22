@@ -198,16 +198,9 @@
   .faq-a p{padding:0 24px 20px;color:var(--ink-soft);font-size:.96rem;line-height:1.65}
 
   /* testimonials */
-  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .testi-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:14px;transition:transform .2s,box-shadow .2s}
-  .testi-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -26px rgba(14,42,48,.4)}
-  .testi-stars{color:var(--gold);font-size:1rem;letter-spacing:2px}
-  .testi-text{color:var(--ink-soft);font-size:.97rem;line-height:1.6;flex:1;font-style:italic}
-  .testi-author{display:flex;align-items:center;gap:12px;margin-top:4px}
-  .testi-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--cobalt),var(--turq));display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;color:#fff;font-size:1.1rem;flex-shrink:0}
-  .testi-author b{display:block;font-size:.95rem}
-  .testi-author span{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--ink-soft);text-transform:uppercase}
-  @media(max-width:880px){.testi-grid{grid-template-columns:1fr}}
+  .testi-empty{display:flex;flex-direction:column;align-items:center;gap:18px;padding:60px 24px;border:2px dashed var(--line);border-radius:var(--radius);text-align:center;max-width:500px}
+  .testi-empty-icon{font-size:2.2rem;color:var(--cobalt);opacity:.4}
+  .testi-empty-text{color:var(--ink-soft);font-size:1rem;line-height:1.65;max-width:34ch}
 
   /* contact */
   #contact{background:var(--ink);color:var(--porcelain);position:relative;overflow:hidden}
@@ -411,38 +404,16 @@
   </div>
 </section>
 
-<section id="testimonials">
+<section id="testimonials" style="background:var(--paper)">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow" data-i18n="testi.eyebrow">Mijozlar</span>
       <h2 data-i18n="testi.title">Ular nima deydi</h2>
-      <p data-i18n="testi.sub">Har bir loyihadan keyin mijozlar o'z fikrlarini qoldirishadi.</p>
     </div>
-    <div class="testi-grid">
-      <div class="testi-card reveal reveal-delay-1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text" data-i18n="t1.text">"Sayt juda chiroyli va tez ishlaydi. Buyurtmalar soni oshdi, mijozlar maqtayapti."</p>
-        <div class="testi-author">
-          <div class="testi-av">A</div>
-          <div><b data-i18n="t1.name">Akbar T.</b><span data-i18n="t1.role">O'quv markazi egasi</span></div>
-        </div>
-      </div>
-      <div class="testi-card reveal reveal-delay-2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text" data-i18n="t2.text">"Telegram bot bizning xizmatimizni avtomatlashtirib yubordi. Admin panel qulay, hamma narsa tushunarli."</p>
-        <div class="testi-author">
-          <div class="testi-av">S</div>
-          <div><b data-i18n="t2.name">Sarvar M.</b><span data-i18n="t2.role">Biznes egasi</span></div>
-        </div>
-      </div>
-      <div class="testi-card reveal reveal-delay-3">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text" data-i18n="t3.text">"Muddatida topshirdi, so'ragan narsalarimni to'liq qildi. Keyingi loyihani ham ishonib beramiz."</p>
-        <div class="testi-author">
-          <div class="testi-av">N</div>
-          <div><b data-i18n="t3.name">Nodira K.</b><span data-i18n="t3.role">Freelance mijoz</span></div>
-        </div>
-      </div>
+    <div class="testi-empty reveal">
+      <div class="testi-empty-icon">◎</div>
+      <p class="testi-empty-text" data-i18n="testi.empty">Sharhlar yig'ilmoqda. Birinchi loyihangizni buyurtma bering — sizning fikringiz bu yerda bo'ladi.</p>
+      <a href="#contact" class="btn btn-primary" data-i18n="testi.cta">Loyiha boshlash</a>
     </div>
   </div>
 </section>
@@ -685,7 +656,9 @@ const I18N={
     "faq.q3":"Does the price include hosting and domain?","faq.a3":"Hosting and domain are separate costs. However, I'll fully help you choose, pay for, and set them up — and recommend affordable, reliable options.",
     "faq.q4":"Do you provide support after launch?","faq.a4":"Yes. The Business package includes 1 month of free technical support. After that, you can contact me for small changes, updates or new features.",
     "faq.q5":"Is an upfront payment required?","faq.a5":"Typically 50% upfront and 50% upon delivery. For smaller projects, a different arrangement is possible.",
-    "testi.eyebrow":"Clients","testi.title":"What they say","testi.sub":"Clients share their experience after every project.",
+    "testi.eyebrow":"Clients","testi.title":"What they say",
+    "testi.empty":"Reviews are being collected. Start your project — your feedback will be the first here.",
+    "testi.cta":"Start a project",
     "t1.text":'"The site looks great and loads fast. Orders went up and clients love it."',"t1.name":"Akbar T.","t1.role":"Education center owner",
     "t2.text":'"The Telegram bot fully automated our service. The admin panel is intuitive and clear."',"t2.name":"Sarvar M.","t2.role":"Business owner",
     "t3.text":'"Delivered on time, did everything I asked. We\'ll definitely work together again."',"t3.name":"Nodira K.","t3.role":"Freelance client",
@@ -740,7 +713,9 @@ const I18N={
     "faq.q3":"Входит ли хостинг и домен в цену?","faq.a3":"Хостинг и домен — отдельные расходы. Однако я полностью помогу выбрать, оплатить и настроить их, и порекомендую доступные надёжные варианты.",
     "faq.q4":"Оказываете ли поддержку после запуска?","faq.a4":"Да. В пакет «Бизнес» входит 1 месяц бесплатной технической поддержки. После этого можно обращаться за мелкими изменениями, обновлениями или новыми функциями.",
     "faq.q5":"Нужна ли предоплата?","faq.a5":"Обычно 50% предоплата и 50% после сдачи. Для небольших проектов возможны другие договорённости.",
-    "testi.eyebrow":"Клиенты","testi.title":"Что они говорят","testi.sub":"Клиенты делятся своим опытом после каждого проекта.",
+    "testi.eyebrow":"Клиенты","testi.title":"Что они говорят",
+    "testi.empty":"Отзывы собираются. Закажите первый проект — ваш отзыв будет здесь.",
+    "testi.cta":"Начать проект",
     "t1.text":'«Сайт выглядит отлично и загружается быстро. Количество заказов выросло, клиенты довольны.»',"t1.name":"Акбар Т.","t1.role":"Владелец учебного центра",
     "t2.text":'«Telegram бот полностью автоматизировал наш сервис. Панель администратора удобная и понятная.»',"t2.name":"Сарвар М.","t2.role":"Владелец бизнеса",
     "t3.text":'«Сдал в срок, сделал всё, что просил. Обязательно поработаем ещё.»',"t3.name":"Нодира К.","t3.role":"Фриланс клиент",
